@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="index.css" media="screen"/>
+    <meta charset="UTF-8">
+    <title>reperatie</title>
+</head>
+<body>
+<form>
+    <div align="center">
+        <table id="inputTable" class = "inputTable">
+            <tr>
+                <td> scriptcode: </td>
+                <td> <input type="text" name="scriptcode" id="scriptcode"> </td>
+            </tr>
+            <tr>
+                <td> businessrulename: </td>
+                <td> <input type="text" name="businessrulename" id="businessrulename"> </td>
+            </tr>
+            <tr>
+                <td> ruletype: </td>
+                <td> <input type="text" name="ruletype" id="ruletype"> </td>
+            </tr>
+            <tr>
+                <td> comparevalue: </td>
+                <td> <input type="text" name="comparevalue" id="comparevalue"> </td>
+            </tr>
+            <tr>
+                <td> operator: </td>
+                <td> <input type="text" name="operator" id="operator"> </td>
+            </tr>
+            <tr>
+                <td> columnvalue: </td>
+                <td> <input type="text" name="columnvalue" id="columnvalue"> </td>
+            </tr>
+            <tr>
+                <td> tablevalue: </td>
+                <td> <input type="text" name="tablevalue" id="tablevalue"> </td>
+            </tr>
+            <tr>
+                <td> exception: </td>
+                <td> <input type="text" name="exception" id="exception"> </td>
+            </tr>
+            <tr>
+                <td> <button type='button' id = "bevestigButton" onclick="bevestig()"> Bevestig </button> </td>
+                <td> <button type='button' id = "editButton" onclick="edit()"  style=" float: left; display: none"> Edit </button> <div id="editCell" style=" font-size: 16px; float: left" ></div></td>
+            </tr>
+        </table>
+    </div>
+</form>
+<div align="center">
+    <table id="infoTable" class = "infoTable">
+
+    </table>
+</div>
+<div align="center">
+    <button type='button' id = "addButton" onclick="add()"> Toevoegen rule + </button>
+</div>
+<script src="index.js"></script>
+</body>
+</html>

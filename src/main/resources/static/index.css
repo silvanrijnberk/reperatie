@@ -1,0 +1,44 @@
+table.infoTable {
+    border-collapse: collapse;
+    width: 80%;
+    table-layout: fixed;
+}
+
+table.inputTable {
+    border-collapse: collapse;
+    width: inherit;
+    table-layout: fixed;
+    background-color: #9c9c9c;
+}
+
+table.infoTable tr:first-child{
+    font-size: 20px;
+}
+
+table.infoTable tr:not:first-child{
+    cursor: pointer;
+    font-size: 16px;
+}
+
+table.infoTable td{
+    cursor: pointer;
+    overflow:hidden;
+
+    text-overflow: ellipsis;
+    width: 11%;
+}
+table.infoTable td:nth-child(last){
+    width: inherit;
+}
+
+table.infoTable tr:nth-child(even) {
+    background: #9c9c9c;
+
+}
+table.infoTable tr:nth-child(odd) {
+    background: #8b8b8b;
+}
+
+table.infoTable tr:not(:first-child):hover {
+    background-color: #c6c6c6;
+}

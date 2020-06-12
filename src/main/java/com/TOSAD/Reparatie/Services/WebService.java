@@ -3,6 +3,7 @@ package com.TOSAD.Reparatie.Services;
 import com.TOSAD.Reparatie.Domain.AttributeCompareRule;
 import com.TOSAD.Reparatie.DAO.AttributeCompareRuleDAO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -50,5 +51,26 @@ public class WebService {
         attributeCompareRuleDAO.delete(attributeCompareRule);
 
         return ResponseEntity.ok().body(attributeCompareRule);
+    }
+    @PutMapping(value = "/attributecomparerule/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<AttributeCompareRule> updateAttributeCompareRule(@PathVariable(value = "id") Long AttributeCompareRuleId, @Valid @RequestBody AttributeCompareRule AttributeCompareRuleDetails) {
+        AttributeCompareRule attributeCompareRule = attributeCompareRuleDAO.findById(AttributeCompareRuleId);
+
+        if (attributeCompareRule == null) {
+            return ResponseEntity.notFound().build();
+        }
+
+        attributeCompareRule.setBUSINESSRULENAME(AttributeCompareRuleDetails.getBUSINESSRULENAME());
+        attributeCompareRule.setCOLUMNVALUE(AttributeCompareRuleDetails.getCOLUMNVALUE());
+        attributeCompareRule.setCOMPAREVALUE(AttributeCompareRuleDetails.getCOMPAREVALUE());
+        attributeCompareRule.setEXCEPTION(AttributeCompareRuleDetails.getEXCEPTION());
+        attributeCompareRule.setOPERATOR(AttributeCompareRuleDetails.getOPERATOR());
+        attributeCompareRule.setRULETYPE(AttributeCompareRuleDetails.getRULETYPE());
+        attributeCompareRule.setSCRIPTCODE(AttributeCompareRuleDetails.getSCRIPTCODE());
+        attributeCompareRule.setTABLEVALUE(AttributeCompareRuleDetails.getTABLEVALUE());
+
+        AttributeCompareRule attributeCompareRuleUpdate = attributeCompareRuleDAO.save(attributeCompareRule);
+
+        return ResponseEntity.ok().body(attributeCompareRuleUpdate);
     }
 }
